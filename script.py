@@ -1,5 +1,8 @@
 import plotly.express as px
 import pandas as pd
+from numpy.ma.core import size
+from plotly.graph_objs.layout import xaxis, yaxis
+
 # ====================================
 # Exemple fourni dans l'ennoncé
 # ====================================
@@ -27,7 +30,7 @@ print('ventes-par-région.html généré avec succès !')
 données['CA'] =  données['prix'] * données['qte']
 ca_produit = données.groupby('produit', as_index=False,) ['CA'].sum()
 
-figure3 = px.bar(
+figure2 = px.bar(
     ca_produit,
     x='produit',
     y='CA',
@@ -35,18 +38,53 @@ figure3 = px.bar(
     text='CA',
     color='produit',
     color_discrete_map={
-        'Produit A' :  'green',
-        'Produit B' : 'blue',
-        'Produit C' : 'red',
+        'Produit A' : '#6A9C78',
+        'Produit B' : '#648ACB',
+        'Produit C' : '#D98278',
     }
 )
 
 
-figure3.write_html('ca-par-produit.html')
+figure2.update_layout(
+    xaxis_title='Produit',
+    yaxis_title='Chiffre d\'affaire (€)',
+    font={'size' : 26},
+)
+
+figure2.write_html('ca-par-produit.html')
 print('Chiffre d\'affaire par produit généré avec succès')
 
 # ====================================
-# le chiffre d'affaire par produit 
+# Quantité vendu par produit
 # ====================================
+
+
+qteProduit =  données.groupby('produit', as_index=False,) ['qte'].sum()
+
+figure3 = px.bar(
+    qteProduit,
+    x='produit',
+    y='qte',
+    title='Quantités vendu par produit',
+    text = 'qte',
+    color='produit',
+    color_discrete_map={
+        'Produit A' : '#6A9C78',
+        'Produit B' : '#648ACB',
+        'Produit C' : '#D98278',
+    }
+)
+
+figure3.update_layout(
+    xaxis_title='Produit',
+    yaxis_title='Quantité vendu',
+    font={'size' : 26},
+    showlegend=False,
+)
+
+figure3.write_html('quantite-par-produit.html')
+
+print('Graphique des quantités généré avec succès !')
+
 
 
