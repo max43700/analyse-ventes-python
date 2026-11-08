@@ -2,7 +2,7 @@
 
 ## Présentation du projet
 
-Ce projet a été réalisé dans le cadre d'un exercice de formation Simplon.
+Ce projet a été réalisé dans le cadre de la préparation à la journée de sélection pour le parcours de formation Développeur en intelligence artificielle proposé par Simplon.
 
 L'objectif est d'analyser les ventes d'une entreprise sur une période de 20 jours afin de calculer le chiffre d'affaires, d'étudier les quantités vendues par produit et de comparer les résultats entre les régions.
 
