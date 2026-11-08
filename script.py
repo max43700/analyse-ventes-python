@@ -24,10 +24,13 @@ print('ventes-par-région.html généré avec succès !')
 
 
 # ====================================
-# les ventes par produit
+# Chiffre d'affaires par produit
 # ====================================
 
+# Calcul du chiffre d'affaires pour chaque vente
 données['CA'] =  données['prix'] * données['qte']
+
+# Regroupement du chiffre d'affaires par produit
 ca_produit = données.groupby('produit', as_index=False,) ['CA'].sum()
 
 figure2 = px.bar(
@@ -55,7 +58,7 @@ figure2.write_html('ca-par-produit.html')
 print('Chiffre d\'affaire par produit généré avec succès')
 
 # ====================================
-# Quantité vendu par produit
+# Quantités vendues par produit
 # ====================================
 
 
