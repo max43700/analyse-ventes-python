@@ -41,8 +41,9 @@ figure3 = px.bar(
     }
 )
 
-figure3.write_html('ca-par-produit.html')
 
+figure3.write_html('ca-par-produit.html')
+print('Chiffre d\'affaire par produit généré avec succès')
 
 # ====================================
 # le chiffre d'affaire par produit 
